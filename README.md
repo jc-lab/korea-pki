@@ -6,6 +6,8 @@
 go get github.com/jc-lab/korea-pki
 ```
 
+라이선스 구매 설명: https://jsty.tistory.com/351
+
 # License
 
 ## 상업용 라이선스
@@ -26,3 +28,23 @@ Affero GNU GPL License v3 와 호환되는 라이선스에 따라 오픈 소스 
 If you are creating an open source application under a license compatible with the Affero GNU GPL license v3, you may use korea-pki under the terms of the AGPLv3.
 
 오픈소스 라이선스에 대해서는 [LICENSE.AGPL.txt](./LICENSE.AGPL.txt) 를 참고해 주세요.
+
+# 특징
+
+## WebBrowser 사용 안함
+
+selenium 이나 Chrome Browser 를 사용하지 않고 오직 Network 만을 이용하기 때문에 빠릅니다.
+
+## AnySign4 지원
+
+AnySign4 을 사용하는 사이트들에 로그인을 구현할 수 있습니다.
+
+예제:
+
+- 정부24 공동인증서(파일) 로그인 : [examples/govkr/main.go](./examples/govkr/main.go)
+
+# Examples
+
+## 정부24 로그인
+
+[examples/govkr/main.go](./examples/govkr/main.go): 공동인증서(파일) 로그인
