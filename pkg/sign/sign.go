@@ -18,8 +18,12 @@
 package sign
 
 import (
+	"crypto"
+	"crypto/rand"
+	"crypto/rsa"
 	"encoding/asn1"
 	"github.com/jc-lab/korea-pki/pkg/certutil"
+	"github.com/pkg/errors"
 	"go.mozilla.org/pkcs7"
 )
 
@@ -46,4 +50,15 @@ func Sign(keyPair *certutil.KeyPair, data []byte) ([]byte, error) {
 		return nil, err
 	}
 	return signedData.Finish()
+}
+
+func SignPKCS1v15(keyPair *certutil.KeyPair, hash crypto.Hash, message []byte) ([]byte, error) {
+	privateKey, ok := keyPair.PrivateKey.(*rsa.PrivateKey)
+	if !ok {
+		return nil, errors.New("no rsa key")
+	}
+	h := hash.New()
+	h.Write(message)
+	hashed := h.Sum(nil)
+	return rsa.SignPKCS1v15(rand.Reader, privateKey, hash, hashed)
 }

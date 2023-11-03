@@ -13,6 +13,7 @@ require (
 )
 
 require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/philhofer/fwd v1.1.2 // indirect
 	golang.org/x/sys v0.13.0 // indirect
 )

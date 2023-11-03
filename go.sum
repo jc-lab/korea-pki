@@ -1,3 +1,5 @@
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/jc-lab/jclab-license v0.0.0-20231102064950-10a1744121e0 h1:ToZ4EDfP8rLIhMB92iG7oMaY6Gk646+nkRKFun5Etxg=
 github.com/jc-lab/jclab-license v0.0.0-20231102064950-10a1744121e0/go.mod h1:Z88NUEfV4VLuwAZQIlrdOn8HWmu4eE9e18HGfrEuXPU=
 github.com/philhofer/fwd v1.1.2 h1:bnDivRJ1EWPjUIRXV5KfORO897HTbpFAQddBdE8t7Gw=
