@@ -28,7 +28,6 @@ jobs:
 
       - name: Prepare CI
         run: |
-          git config --global url."https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
           go env -w GOPRIVATE=github.com/jc-lab
 
       - name: Read release information
