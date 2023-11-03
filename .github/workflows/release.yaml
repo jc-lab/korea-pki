@@ -1,0 +1,44 @@
+name: Release
+on:
+  push: {}
+#    tags:
+#      - 'v**'
+
+env:
+  GO_VERSION: "1.21"
+
+defaults:
+  run:  # use bash for all operating systems unless overridden
+    shell: bash
+
+jobs:
+  release:
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+
+    name: Release
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Read release information
+        run: |
+          mkdir -p .tmp
+          go run ./cmd/information/main.go -release-info | tee .tmp/release-info.json
+
+      - name: Create draft release
+        run: |
+          touch .tmp/release-note.md
+          lib_version=$(cat .tmp/release-info.json | jq -r '.version')
+          lib_license_version=$(cat .tmp/release-info.json | jq -r '.licenseVersion')
+          echo "Library Version: ${lib_version}" >> .tmp/release-note.md
+          echo "Library License Version: ${lib_license_version}" >> .tmp/release-note.md
+          tag="${GITHUB_REF#refs/tags/}"
+          gh release create ${tag} --draft -F .tmp/release-note.md --title ${tag}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
