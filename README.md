@@ -45,6 +45,5 @@ AnySign4 을 사용하는 사이트들에 로그인을 구현할 수 있습니�
 
 # Examples
 
-## 정부24 로그인
-
-[examples/govkr/main.go](./examples/govkr/main.go): 공동인증서(파일) 로그인
+- 정부24 공동인증서(파일) 로그인 : [examples/govkr/main.go](./examples/govkr/main.go)
+- 국세청 홈택스(HomeTax) 공동인증서(파일) 로그인 : [examples/hometax/main.go](./examples/hometax/main.go) : 
