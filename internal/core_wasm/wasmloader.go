@@ -2,18 +2,11 @@
 //
 // Copyright (C) 2023 JC-Lab. All rights reserved.
 //
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// https://github.com/jc-lab/license-terms/blob/master/dual-license-commercial-or-ssplv1/README.md
 //
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// Licensed under the JC-Lab License 1.0 and the Server Side Public License,
+// v1; you may not use this file except in compliance with, at your election,
+// the JC-Lab License 1.0 or the Server Side Public License, v1.
 
 package core_wasm
 
