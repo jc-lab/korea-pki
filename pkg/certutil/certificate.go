@@ -12,6 +12,7 @@ package certutil
 
 import (
 	"crypto/x509"
+	"github.com/jc-lab/korea-pki/internal/kx509"
 	"github.com/pkg/errors"
 )
 
@@ -20,7 +21,8 @@ func LoadX509File(file string) (*x509.Certificate, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "parse certificate file failed")
 	}
-	certificate, err := x509.ParseCertificate(block.Bytes)
+
+	certificate, err := kx509.ParseCertificate(block.Bytes)
 	if err != nil {
 		return nil, errors.Wrap(err, "parse certificate der failed")
 	}

@@ -9,11 +9,12 @@ require (
 	github.com/tetratelabs/wazero v1.5.0
 	github.com/tinylib/msgp v1.1.9
 	go.mozilla.org/pkcs7 v0.0.0-20210826202110-33d05740a352
-	golang.org/x/term v0.13.0
+	golang.org/x/term v0.29.0
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/philhofer/fwd v1.1.2 // indirect
-	golang.org/x/sys v0.13.0 // indirect
+	golang.org/x/crypto v0.33.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
 )

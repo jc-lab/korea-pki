@@ -13,6 +13,7 @@ package certutil
 import (
 	"crypto"
 	"crypto/x509"
+	"github.com/jc-lab/korea-pki/internal/kx509"
 	"github.com/jc-lab/korea-pki/pkg/korea_pki_core"
 	"github.com/pkg/errors"
 	"path/filepath"
@@ -44,7 +45,7 @@ func LoadKeyPair(core korea_pki_core.Core, certFile *CertFile) (*KeyPair, error)
 	output := &KeyPair{}
 
 	if certFile.CertDer != nil {
-		if output.Certificate, err = x509.ParseCertificate(certFile.CertDer); err != nil {
+		if output.Certificate, err = kx509.ParseCertificate(certFile.CertDer); err != nil {
 			return nil, err
 		}
 	} else if certFile.CertFile != "" {
@@ -63,8 +64,8 @@ func LoadKeyPair(core korea_pki_core.Core, certFile *CertFile) (*KeyPair, error)
 		if output.PrivateKey, output.PrivateKeyAttributes, err = ReadEncryptedPrivateKey(core, certFile.KeyDer, certFile.Password); err != nil {
 			return nil, err
 		}
-	} else if certFile.CertFile != "" {
-		if output.PrivateKey, output.PrivateKeyAttributes, err = LoadPrivateKeyFile(core, certFile.CertFile, certFile.Password); err != nil {
+	} else if certFile.KeyFile != "" {
+		if output.PrivateKey, output.PrivateKeyAttributes, err = LoadPrivateKeyFile(core, certFile.KeyFile, certFile.Password); err != nil {
 			return nil, err
 		}
 	} else if certFile.Directory != "" {
